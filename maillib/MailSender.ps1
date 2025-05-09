@@ -12,7 +12,13 @@ param (
     [string]$Body,
 
     [Parameter(Mandatory=$false)]
-    [string]$Attachment
+    [string]$Attachment,
+
+    [Parameter(Mandatory=$false)]
+    [string[]]$Cc,
+
+    [Parameter(Mandatory=$false)]
+    [string[]]$Bcc
 )
 
 # Nastavení kódování výstupu pro konzoli
@@ -86,6 +92,14 @@ $MailParams = @{
 
 if ($UseSsl) {
     $MailParams.UseSsl = $true
+}
+
+if ($Cc) {
+    $MailParams.Cc = $Cc
+}
+
+if ($Bcc) {
+    $MailParams.Bcc = $Bcc
 }
 
 if (-not [string]::IsNullOrEmpty($Attachment)) {

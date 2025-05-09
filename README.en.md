@@ -7,6 +7,7 @@ A simple tool for sending emails from the Windows command line using a batch fil
 ## Features
 
 *   Sending emails with recipient, subject, and message body.
+*   Support for CC (Carbon Copy) and BCC (Blind Carbon Copy).
 *   Attachment support.
 *   Configuration of SMTP server, port, credentials, and sender address via an external configuration file.
 *   Compatible with Windows 7 and newer.
@@ -60,7 +61,7 @@ UseSsl=true
 Run `mailer.bat` from the command line (`cmd.exe` or PowerShell) with the required arguments:
 
 ```batch
-mailer.bat /to "recipient@example.com" /subject "Message Subject" /body "Message Body" [/attachment "C:\path\to\attachment.txt"]
+mailer.bat /to "recipient@example.com" /subject "Message Subject" /body "Message Body" [/cc "cc@example.com"] [/bcc "bcc@example.com"] [/attachment "C:\path\to\attachment.txt"]
 ```
 
 **Arguments:**
@@ -68,6 +69,8 @@ mailer.bat /to "recipient@example.com" /subject "Message Subject" /body "Message
 *   `/to "address"`: (Required) Email address of the recipient.
 *   `/subject "text"`: (Required) Subject of the email.
 *   `/body "text"`: (Required) Body of the email.
+*   `/cc "addresses"`: (Optional) Email addresses for CC, comma-separated.
+*   `/bcc "addresses"`: (Optional) Email addresses for BCC, comma-separated.
 *   `/attachment "path"`: (Optional) Full path to the file to be attached.
 *   `/?`: Displays help.
 
@@ -81,6 +84,11 @@ mailer.bat /to "recipient@example.com" /subject "Message Subject" /body "Message
 *   Sending an email with an attachment:
     ```batch
     mailer.bat /to "jane.smith@example.com" /subject "Documents" /body "Sending requested documents in attachment." /attachment "D:\contracts\ContractDraft.pdf"
+    ```
+
+*   Sending an email with CC and BCC:
+    ```batch
+    mailer.bat /to "recipient@example.com" /subject "Information with copies" /body "This is important information." /cc "boss@example.com,assistant@example.com" /bcc "secret@example.com"
     ```
 
 *   Displaying help (in PowerShell, `.\mailer.bat` must be used):

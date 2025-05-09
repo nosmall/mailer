@@ -7,6 +7,7 @@ Jednoduchý nástroj pro odesílání e-mailů z příkazové řádky Windows po
 ## Funkce
 
 *   Odesílání e-mailů s příjemcem, předmětem a tělem zprávy.
+*   Podpora pro kopii (CC) a skrytou kopii (BCC).
 *   Podpora pro přílohy.
 *   Konfigurace SMTP serveru, portu, přihlašovacích údajů a adresy odesílatele přes externí konfigurační soubor.
 *   Kompatibilní s Windows 7 a novějšími.
@@ -60,7 +61,7 @@ UseSsl=true
 Spusťte `mailer.bat` z příkazové řádky (`cmd.exe` nebo PowerShell) s požadovanými argumenty:
 
 ```batch
-mailer.bat /to "prijemce@example.com" /subject "Predmet zpravy" /body "Telo zpravy" [/attachment "C:\cesta\k\priloze.txt"]
+mailer.bat /to "prijemce@example.com" /subject "Predmet zpravy" /body "Telo zpravy" [/cc "kopie@example.com"] [/bcc "skryta@example.com"] [/attachment "C:\cesta\k\priloze.txt"]
 ```
 
 **Argumenty:**
@@ -68,6 +69,8 @@ mailer.bat /to "prijemce@example.com" /subject "Predmet zpravy" /body "Telo zpra
 *   `/to "adresa"`: (Povinné) E-mailová adresa příjemce.
 *   `/subject "text"`: (Povinné) Předmět e-mailu.
 *   `/body "text"`: (Povinné) Tělo e-mailu.
+*   `/cc "adresy"`: (Volitelné) E-mailové adresy pro kopii, oddělené čárkou.
+*   `/bcc "adresy"`: (Volitelné) E-mailové adresy pro skrytou kopii, oddělené čárkou.
 *   `/attachment "cesta"`: (Volitelné) Plná cesta k souboru, který má být přiložen.
 *   `/?`: Zobrazí nápovědu.
 
@@ -81,6 +84,11 @@ mailer.bat /to "prijemce@example.com" /subject "Predmet zpravy" /body "Telo zpra
 *   Odeslání e-mailu s přílohou:
     ```batch
     mailer.bat /to "jana.svobodova@example.com" /subject "Dokumenty" /body "Posilam pozadovane dokumenty v priloze." /attachment "D:\smlouvy\NavrhSmlouvy.pdf"
+    ```
+
+*   Odeslání e-mailu s kopií (CC) a skrytou kopií (BCC):
+    ```batch
+    mailer.bat /to "prijemce@example.com" /subject "Informace s kopiemi" /body "Toto je dulezita informace." /cc "sef@example.com,asistentka@example.com" /bcc "tajne@example.com"
     ```
 
 *   Zobrazení nápovědy (v PowerShellu je třeba použít `.\mailer.bat`):
