@@ -2,6 +2,9 @@
 chcp 65001 > nul
 setlocal enabledelayedexpansion
 
+rem Verze aplikace
+set "APP_VERSION=1.0.0"
+
 rem Inicializace proměnných
 set "to_param="
 set "subject_param="
@@ -42,6 +45,9 @@ if /i "!arg1!"=="/attachment" (
 if /i "!arg1!"=="/?" (set "show_help=1" & goto end_loop)
 if /i "!arg1!"=="-h" (set "show_help=1" & goto end_loop)
 if /i "!arg1!"=="--help" (set "show_help=1" & goto end_loop)
+if /i "!arg1!"=="/version" (echo Verze: !APP_VERSION! & goto end)
+if /i "!arg1!"=="-v" (echo Verze: !APP_VERSION! & goto end)
+if /i "!arg1!"=="--version" (echo Verze: !APP_VERSION! & goto end)
 
 echo Neznámý parametr: !arg1!
 set "show_help=1"
@@ -85,6 +91,7 @@ echo   - /to          E-mailova adresa prijemce (povinne).
 echo   - /subject     Predmet e-mailu (povinne).
 echo   - /body        Obsah (telo) e-mailu (povinne).
 echo   - /attachment  Cesta k souboru prilohy (volitelne).
+echo   - /version     Zobrazi verzi aplikace (aliasy: -v, --version).
 echo   - /?           Zobrazi tuto napovedu.
 echo(
 echo Priklad:

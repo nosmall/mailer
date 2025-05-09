@@ -10,6 +10,7 @@ A simple tool for sending emails from the Windows command line using a batch fil
 *   Attachment support.
 *   Configuration of SMTP server, port, credentials, and sender address via an external configuration file.
 *   Compatible with Windows 7 and newer.
+*   **Current limitations:** The script in its current version does not support proper handling of diacritics, HTML code, or most special characters in the email body or subject when used via `mailer.bat`. Issues may arise, especially with encoding.
 
 ## Requirements
 

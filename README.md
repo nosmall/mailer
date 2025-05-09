@@ -10,6 +10,7 @@ Jednoduchý nástroj pro odesílání e-mailů z příkazové řádky Windows po
 *   Podpora pro přílohy.
 *   Konfigurace SMTP serveru, portu, přihlašovacích údajů a adresy odesílatele přes externí konfigurační soubor.
 *   Kompatibilní s Windows 7 a novějšími.
+*   **Aktuální omezení:** Skript v současné verzi nepodporuje správné zpracování diakritiky, HTML kódu ani většiny speciálních znaků v těle ani předmětu e-mailu při použití přes `mailer.bat`. Problémy mohou nastat zejména s kódováním.
 
 ## Požadavky
 
