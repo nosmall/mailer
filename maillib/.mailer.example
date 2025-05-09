@@ -1,0 +1,6 @@
+SmtpServer=smtp-relay.gmail.com
+SmtpPort=587
+SmtpUsername=user@domain.tld
+SmtpPassword=strongPasswordForApplication
+EmailFromAddress=user@domain.tld
+UseSsl=true
